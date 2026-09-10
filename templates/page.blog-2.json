@@ -17,26 +17,19 @@
         "padding_bottom": 28
       }
     },
-    "rich_text_CMYB6t": {
+    "rich_text_QgrgqB": {
       "type": "rich-text",
       "blocks": {
-        "heading_VE4bhK": {
+        "heading_dVmNHb": {
           "type": "heading",
           "settings": {
-            "heading": "{{ page.title }}",
+            "heading": "<em><strong>The incredibly glamorous life of designing and manufacturing jeans in Los Angeles, California....</strong></em>",
             "heading_size": "h2"
-          }
-        },
-        "text_8y4Nie": {
-          "type": "text",
-          "settings": {
-            "text": "{{ page.content }}"
           }
         }
       },
       "block_order": [
-        "heading_VE4bhK",
-        "text_8y4Nie"
+        "heading_dVmNHb"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -44,13 +37,215 @@
         "content_alignment": "left",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 52
+        "padding_top": 40,
+        "padding_bottom": 24
+      }
+    },
+    "multicolumn_xcbmtC": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_7a4Ket": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-10.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_dqg3qc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-11.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_gCXpyn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9326.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_dLMAGg": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_7787.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rGQM7w": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9301.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_et8Qkk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9340.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_RmKHzC": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9311.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_PLCEHr": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9312.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_QLnxWj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9339.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Gpz9Yx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9330_1.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_HN4Vqa": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9329.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_t7eHFY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9328.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_bTYnah": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9317.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rAnfyM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9315.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_BGwXaD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_7817.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_DbYbcL": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_7a4Ket",
+        "column_dqg3qc",
+        "column_gCXpyn",
+        "column_dLMAGg",
+        "column_rGQM7w",
+        "column_et8Qkk",
+        "column_RmKHzC",
+        "column_PLCEHr",
+        "column_QLnxWj",
+        "column_Gpz9Yx",
+        "column_HN4Vqa",
+        "column_t7eHFY",
+        "column_bTYnah",
+        "column_rAnfyM",
+        "column_BGwXaD",
+        "column_DbYbcL"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "columns_gap": 6,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
     "main",
-    "rich_text_CMYB6t"
+    "rich_text_QgrgqB",
+    "multicolumn_xcbmtC"
   ]
 }

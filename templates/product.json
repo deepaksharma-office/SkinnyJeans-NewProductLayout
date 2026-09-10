@@ -115,6 +115,7 @@
         },
         "inventory_xqxqY7": {
           "type": "inventory",
+          "disabled": true,
           "settings": {
             "red_threshold": 3,
             "orange_threshold": 10,

@@ -128,7 +128,7 @@
   .custom-main-product[data-enhanced] .custom-main-product__pagination { display: flex; position: absolute; bottom: 10px; left: 12px; max-width: calc(100% - 24px); overflow-x: auto; }
   .custom-main-product__pagination button { display: grid; place-items: center; width: 14px; min-width: 14px; height: 44px; border: 0; padding: 0; background: none; }
   .custom-main-product__pagination span { width: 5px; height: 5px; background: white; border-radius: 50%; transition: background .2s, border-radius .2s; box-shadow: 0 0 1px #333; }
-  .custom-main-product__pagination [aria-current=true] span { background: black; width: 7px; height: 3px; border-radius: 0; }
+  .custom-main-product__pagination [aria-current=true] span { background: black; width: 12px; height: 3px; border-radius: 0; }
   .custom-main-product__viewer-slide { padding: 64px 0; }
   .custom-main-product__viewer-stage { width: 100%; }
   .custom-main-product__viewer-stage img { width: 100%; }

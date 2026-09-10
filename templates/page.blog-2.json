@@ -20,8 +20,8 @@
     "rich_text_QgrgqB": {
       "type": "rich-text",
       "blocks": {
-        "heading_dVmNHb": {
-          "type": "heading",
+        "cheading_DTckXM": {
+          "type": "cheading",
           "settings": {
             "heading": "<em><strong>The incredibly glamorous life of designing and manufacturing jeans in Los Angeles, California....</strong></em>",
             "heading_size": "h2"
@@ -29,7 +29,7 @@
         }
       },
       "block_order": [
-        "heading_dVmNHb"
+        "cheading_DTckXM"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {

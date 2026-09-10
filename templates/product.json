@@ -110,7 +110,7 @@
         "variant_selector_ekbdd4": {
           "type": "variant_selector",
           "settings": {
-            "size_guide_page": ""
+            "size_guide_page": "size-guide"
           }
         },
         "inventory_xqxqY7": {

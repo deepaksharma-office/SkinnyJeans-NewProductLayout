@@ -32,7 +32,7 @@
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'title' -%}
-                <h1 class="custom-main-product__title">{{ product.title | escape }}</h1>
+                <div class="custom-main-product__title">{{ product.title | escape }}</div>
               {%- when 'price' -%}
                 <div data-custom-update="price" aria-live="polite">
                   {% render 'custom-product-price', product: product, variant: current_variant, section: section %}

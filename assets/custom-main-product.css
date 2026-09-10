@@ -27,7 +27,7 @@
 .custom-main-product__stars > span { grid-area: 1 / 1; }
 .custom-main-product__stars > span:last-child { color: #ba933d; clip-path: inset(0 calc(100% - var(--custom-rating)) 0 0); }
 .custom-main-product__divider { border: 0; height: 1px; background: var(--custom-border); margin: 20px 0 32px; }
-.custom-main-product__options { display: grid; gap: 32px; margin: 28px 0; }
+.custom-main-product__options { display: grid; gap: 8px; margin: 28px 0; }
 .custom-main-product__option { padding: 0; margin: 0; border: 0; min-width: 0; position: relative; }
 .custom-main-product__option legend { padding: 0; margin: 0 0 18px; font-size: 13px; text-transform: uppercase; max-width: calc(100% - 95px); }
 .custom-main-product__option legend span { color: var(--custom-muted); text-transform: none; }

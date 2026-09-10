@@ -135,7 +135,7 @@
           "type": "collapsible",
           "settings": {
             "heading": "Fit & measurements",
-            "content": "",
+            "content": "{{ product.metafields.custom.design_and_fit | metafield_tag }}",
             "metafield_source": "fit",
             "initially_open": false
           }
@@ -144,7 +144,7 @@
           "type": "collapsible",
           "settings": {
             "heading": "Fabric & care",
-            "content": "",
+            "content": "{{ product.metafields.custom.fabric_and_care | metafield_tag }}",
             "metafield_source": "care",
             "initially_open": false
           }
@@ -192,72 +192,6 @@
         "padding_bottom": 28
       }
     },
-    "collapsible_gCmtAB": {
-      "type": "collapsible",
-      "blocks": {
-        "content_VB8R8x": {
-          "type": "content",
-          "settings": {
-            "content": "{{ product.description }}"
-          }
-        }
-      },
-      "block_order": [
-        "content_VB8R8x"
-      ],
-      "name": "Collapsible Content",
-      "settings": {
-        "title": "Description",
-        "open": true,
-        "background": "#ffffff",
-        "margin_bottom": 0,
-        "margin_top": 60
-      }
-    },
-    "collapsible_ifixh8": {
-      "type": "collapsible",
-      "blocks": {
-        "content_jqJ6Ny": {
-          "type": "content",
-          "settings": {
-            "content": "{{ product.metafields.custom.design_and_fit | metafield_tag }}"
-          }
-        }
-      },
-      "block_order": [
-        "content_jqJ6Ny"
-      ],
-      "name": "Collapsible Content",
-      "settings": {
-        "title": "Details & Fit",
-        "open": false,
-        "background": "#ffffff",
-        "margin_bottom": 0,
-        "margin_top": 0
-      }
-    },
-    "collapsible_XWPaGG": {
-      "type": "collapsible",
-      "blocks": {
-        "content_HAP9mD": {
-          "type": "content",
-          "settings": {
-            "content": "{{ product.metafields.custom.fabric_and_care | metafield_tag }}"
-          }
-        }
-      },
-      "block_order": [
-        "content_HAP9mD"
-      ],
-      "name": "Collapsible Content",
-      "settings": {
-        "title": "Fabric & Care",
-        "open": false,
-        "background": "#ffffff",
-        "margin_bottom": 50,
-        "margin_top": 0
-      }
-    },
     "1755256683b21689c3": {
       "type": "apps",
       "blocks": {
@@ -283,9 +217,6 @@
     "main",
     "custom_main_product_kJH9Um",
     "related-products",
-    "collapsible_gCmtAB",
-    "collapsible_ifixh8",
-    "collapsible_XWPaGG",
     "1755256683b21689c3"
   ]
 }

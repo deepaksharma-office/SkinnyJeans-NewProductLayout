@@ -1,0 +1,151 @@
+{% schema %}
+{
+  "name": "Featured Logos",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "AS FEATURED IN:"
+    },
+    {
+      "type": "color",
+      "id": "title_bg_color",
+      "label": "Title background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Logo image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "label": "Image width (px)",
+          "min": 50,
+          "max": 300,
+          "step": 10,
+          "default": 150
+        }
+      ]
+    }
+  ],
+  "max_blocks": 15,
+  "presets": [
+    {
+      "name": "Featured Logos",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
+
+{%- style -%}
+    #shopify-section-{{ section.id }}{
+        background-color: {{ section.settings.title_bg_color }};
+    }
+
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      }
+
+      @media screen and (min-width: 750px) {
+        .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top }}px;
+          padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
+      }
+
+      .featured-logo {
+      display: flex
+  ;
+      align-items: center;
+      justify-content: center;
+  }
+
+      .section-{{ section.id }}-title {
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .featured-logos-wrapper {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;    overflow-y: hidden;
+      }
+
+      .featured-logos-wrapper::-webkit-scrollbar {
+        display: none;
+      }
+
+      .featured-logo {
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+        text-align: center;
+      }
+
+      @media screen and (min-width: 750px) {
+        .featured-logos-wrapper {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 0px;
+          overflow: auto;
+        }
+      }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <div class="page-width">
+    {% if section.settings.title != blank %}
+      <div class="section-{{ section.id }}-title">
+        <h2>{{ section.settings.title }}</h2>
+      </div>
+    {% endif %}
+
+    <div class="featured-logos-wrapper">
+      {% for block in section.blocks %}
+        <div
+          class="block--grid-image  featured-logo"
+          {{ block.shopify_attributes }}
+        >
+          {% if block.settings.logo_image != blank %}
+            <img
+              src="{{ block.settings.logo_image | img_url: 'master' }}"
+              width="{{ block.settings.image_width }}"
+              height="auto"
+              alt="Logo"
+              loading="lazy"
+            >
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

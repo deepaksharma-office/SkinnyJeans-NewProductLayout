@@ -1,0 +1,52 @@
+{{ 'center-image.css' | asset_url | stylesheet_tag }}
+<div
+  class="image_middle_wrap"
+  style="--width: {{ section.settings.width }}px;"
+>
+  {% for block in section.blocks %}
+    <img
+      class="image_middle"
+      src="{{ block.settings.image | image_url }}"
+      width="{{ block.settings.image.width }}"
+      height="{{ block.settings.image.height }}"
+      loading="lazy"
+      {{ block.shopify_attributes }}
+    >
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Multiple Images",
+  "settings": [
+    {
+      "type": "range",
+      "id": "width",
+      "label": "Image Size",
+      "min": 400,
+      "max": 2000,
+      "default": 1000,
+      "step": 200,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multiple Images"
+    }
+  ]
+}
+{% endschema %}

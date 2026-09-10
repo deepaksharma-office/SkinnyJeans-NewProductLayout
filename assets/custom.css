@@ -1,0 +1,154 @@
+.border{
+    border: 1px solid;
+}
+
+.simple_text {
+  text-align: center;
+  font-size: 24px;
+}
+
+/* .list-social__item .svg-wrapper{
+    width: 40px;
+    height: 40px;
+} */
+.footer .list-social__item .svg-wrapper {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+}
+
+.no-margin{
+  margin: 0!important;
+}
+
+.footer .list-social__link{
+  padding-right: 0 !important;
+}
+.page-width.page-width-footer {
+    max-width: 1500px;
+}
+
+.column--gaps{
+  gap: var(--column-gaps)!important;
+}
+
+.black_image {
+  filter: grayscale(100%);
+}
+
+.footer-block{
+  position: relative;
+}
+
+.margin--top{
+  margin-top: 4rem !important;
+}
+
+.image--block{
+    filter: grayscale(100%);
+}
+
+.copyright__content {
+  margin: 0;
+}
+
+.footer__copyright-menu {
+  bottom: 6%;
+  position: absolute;
+      z-index: 9;
+}
+
+.policies--custom-parent {
+    display: grid;
+    grid-template-columns: 1fr; /* default: mobile */
+    column-gap: var(--grid-desktop-horizontal-spacing);
+    row-gap: var(--grid-desktop-vertical-spacing);
+  }
+  
+  /* Desktop layout */
+  @media (min-width: 768px) {
+    .policies--custom-parent {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    }
+  
+    .grid--footer-policy {
+      grid-column: 2 / 3; /* move to 2nd column */
+    }
+  }
+  
+
+@media (max-width: 768px) {
+    .button__block {
+        background-color: #000a33;
+        color: #ffffff;
+    }
+}
+
+/* Base pill */
+.custom__design-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.4em !important;
+
+  padding: 0.35rem 0.75rem !important;
+  border-radius: 9999px !important;
+
+  font-weight: 700 !important;
+  font-size: 1.4rem !important;   /* 12px */
+  line-height: 1 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+
+  background: #000 !important;
+  color: #fff !important;
+  border: 1px solid #000 !important;
+}
+
+/* Hover/active: invert */
+.custom__design-badge:hover,
+.custom__design-badge:active {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #000 !important;
+}
+
+/* Focus ring (accessible) */
+.custom__design-badge:focus {
+  outline: 2px solid #000 !important;
+  outline-offset: 2px !important;
+}
+
+/* Optional: outlined variant */
+.custom__design-badge--outline {
+  background: transparent !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+}
+
+/* Optional: subtle shadow for contrast on white bg */
+.custom__design-badge {
+  box-shadow: 0 1px 0 rgba(0,0,0,.12) !important;
+}
+
+
+.footer__copyright-menu {
+  text-align: left;
+  white-space: nowrap;
+  margin-top: 1.5rem;
+  display: flex;
+}
+cart-remove-button .button:not([disabled]){
+  color: rgb(var(--color-foreground),0.75);
+}
+
+@media screen and (min-width: 750px) {
+  .footer__content-bottom-wrapper:not(.footer__content-bottom-wrapper--center) .footer__copyright-menu {
+    text-align: right;
+  }
+}
+
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+
+}

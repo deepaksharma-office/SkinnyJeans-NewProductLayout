@@ -1,0 +1,650 @@
+{{ 'image-texts.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #shopify-section-{{ section.id }}{
+    background: {{ section.settings.sectionbackground }};
+  }
+{%- endstyle -%}
+<div class="page-width container">
+  <div class="section-{{ section.id }}-padding">
+    <div class="imagetext__custom-container">
+      <div class="imagetext__custom-wrap content-position-{{ section.settings.position | default: 'left' }}">
+        <div class="image__container-custom">
+          <div class="image__wrap-custom">
+            {%- if section.settings.content_type == 'image' -%}
+              {%- if section.settings.image != blank -%}
+                <img
+                  class="text__with-image-custom"
+                  src="{{ section.settings.image | image_url }}"
+                  width="{{ section.settings.image.width }}"
+                  height="{{ section.settings.image.height }}"
+                  alt="{{ section.settings.image.alt | default: 'Text with Image' }}"
+                  loading="lazy"
+                >
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            {%- elsif section.settings.content_type == 'video' -%}
+              {%- if section.settings.video != blank -%}
+                {{
+                  section.settings.video
+                  | video_tag:
+                    image_size: '1100x',
+                    autoplay: true,
+                    loop: true,
+                    controls: false,
+                    muted: true,
+                    class: 'text__with-video-custom'
+                }}
+              {%- else -%}
+                <div class="placeholder-video">
+                  {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="wrappedrelative__container-custom">
+          <div
+            class="wrappedcontent__container-custom content-overlay-{{ section.settings.position_overlay | default: false }} {% if section.settings.glass %}content-glass{% endif %}"
+            style="
+              --contentbackground: {{ section.settings.contentcolor | default: '#ffffff' }};
+              --contentoverlay-width: {{ section.settings.content_width | default: 80 }}em;
+              --content--left-position: {{ section.settings.left_position | default: 50 }}%;
+              --content--top-position: {{ section.settings.top_position | default: 50 }}%;
+            "
+          >
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'heading' -%}
+                  <h2
+                    class="image-with-text__heading inline-richtext {{ block.settings.heading_size | default: 'h1' }}"
+                    {{ block.shopify_attributes }}
+                    style="color: {{ block.settings.text_color | default: '#000000' }};"
+                  >
+                    {{ block.settings.heading | default: 'Image and blocks' }}
+                  </h2>
+
+                {%- when 'caption' -%}
+                  <p
+                    class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style | default: 'caption-with-letter-spacing' }} {{ block.settings.text_style | default: 'caption-with-letter-spacing' }}--{{ block.settings.text_size | default: 'medium' }} {{ block.settings.text_style | default: 'caption-with-letter-spacing' }}"
+                    {{ block.shopify_attributes }}
+                    style="color: {{ block.settings.text_color | default: '#000000' }};"
+                  >
+                    {{ block.settings.caption | default: 'Add a tagline' | escape }}
+                  </p>
+
+                {%- when 'text' -%}
+                  <div
+                    class="image-with-text__text rte {{ block.settings.text_style | default: 'body' }}"
+                    {{ block.shopify_attributes }}
+                    style="color: {{ block.settings.text_color | default: '#000000' }};"
+                  >
+                    {{
+                      block.settings.text
+                      | default: '<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>'
+                    }}
+                  </div>
+
+                {% when 'text_image_blocks' %}
+                  <div class="content__wrap-looper">
+                    {% for i in (1..6) %}
+                      {% capture image %}image_{{ i }}{% endcapture %}
+                      {% capture title %}title_{{ i }}{% endcapture %}
+                      {% capture content %}content_{{ i }}{% endcapture %}
+                      {% if block.settings[image] != blank %}
+                        <div class="content__block-wrap">
+                          <div class="content_block-image">
+                            <img
+                              class="image__block-wrap"
+                              src="{{ block.settings[image] | image_url }}"
+                              width="{{ block.settings[image].width }}"
+                              height="{{ block.settings[image].height }}"
+                              alt="{{ block.settings[title] | escape }} "
+                              loading="lazy"
+                            >
+                          </div>
+                          <div class="content_block-texts">
+                            <h2 class="h4 block_title" style="color: {{ section.settings.color }};">
+                              {{ block.settings[title] | newline_to_br }}
+                            </h2>
+                            <div class="block_content" style="color: {{ section.settings.color }};">
+                              {{ block.settings[content] | newline_to_br }}
+                            </div>
+                          </div>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+
+                {%- when 'button' -%}
+                  {%- if block.settings.button_label != blank -%}
+                    <a
+                      {% if block.settings.button_link == blank %}
+                        role="link" aria-disabled="true"
+                      {% else %}
+                        href="{{ block.settings.button_link }}"
+                      {% endif %}
+                      class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                      {{ block.shopify_attributes }}
+                      style="color: {{ block.settings.text_color | default: '#ffffff' }}; background: {{ block.settings.button_color | default: '#000000' }};"
+                    >
+                      {{ block.settings.button_label | default: 'Button label' | escape }}
+                    </a>
+                  {%- endif -%}
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Image and blocks",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "position",
+      "label": "Image Position",
+      "default": "left",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "content_type",
+      "label": "Content Type",
+      "default": "image",
+      "options": [
+        {
+          "label": "Image",
+          "value": "image"
+        },
+        {
+          "label": "Video",
+          "value": "video"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "sectionbackground",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "contentcolor",
+      "label": "Content Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Content Overlay Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "position_overlay",
+      "label": "Position Over image",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content Width",
+      "max": 120,
+      "min": 20,
+      "unit": "em",
+      "default": 80,
+      "step": 5
+    },
+    {
+      "type": "range",
+      "id": "left_position",
+      "label": "Left Position",
+      "max": 100,
+      "min": 0,
+      "unit": "%",
+      "default": 50,
+      "step": 5
+    },
+    {
+      "type": "range",
+      "id": "top_position",
+      "label": "Top Position",
+      "max": 100,
+      "min": 0,
+      "unit": "%",
+      "default": 50,
+      "step": 5
+    },
+    {
+      "type": "checkbox",
+      "label": "Glass Effect on Content",
+      "id": "glass",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_image_blocks",
+      "name": "Text Image Blocks",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "text",
+          "id": "title_1",
+          "label": "Title 1",
+          "default": "Title One"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Content 1",
+          "default": "Content for block one goes here."
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "Title 2",
+          "default": "Title Two"
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Content 2",
+          "default": "Content for block two goes here."
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "text",
+          "id": "title_3",
+          "label": "Title 3",
+          "default": "Title Three"
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "Content 3",
+          "default": "Content for block three goes here."
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "text",
+          "id": "title_4",
+          "label": "Title 4",
+          "default": "Title Four"
+        },
+        {
+          "type": "textarea",
+          "id": "content_4",
+          "label": "Content 4",
+          "default": "Content for block four goes here."
+        },
+        {
+          "type": "image_picker",
+          "id": "image_5",
+          "label": "Image 5"
+        },
+        {
+          "type": "text",
+          "id": "title_5",
+          "label": "Title 5",
+          "default": "Title Five"
+        },
+        {
+          "type": "textarea",
+          "id": "content_5",
+          "label": "Content 5",
+          "default": "Content for block five goes here."
+        },
+        {
+          "type": "image_picker",
+          "id": "image_6",
+          "label": "Image 6"
+        },
+        {
+          "type": "text",
+          "id": "title_6",
+          "label": "Title 6",
+          "default": "Title Six"
+        },
+        {
+          "type": "textarea",
+          "id": "content_6",
+          "label": "Content 6",
+          "default": "Content for block six goes here."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Image and blocks",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Small"
+            },
+            {
+              "value": "h1",
+              "label": "Medium"
+            },
+            {
+              "value": "h0",
+              "label": "Large"
+            },
+            {
+              "value": "hxl",
+              "label": "Extra large"
+            },
+            {
+              "value": "hxxl",
+              "label": "Huge"
+            }
+          ],
+          "default": "h1",
+          "label": "Heading size"
+        }
+      ]
+    },
+    {
+      "type": "caption",
+      "name": "Caption",
+      "settings": [
+        {
+          "type": "text",
+          "id": "caption",
+          "default": "Add a tagline",
+          "label": "Caption"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "subtitle",
+              "label": "Subtitle"
+            },
+            {
+              "value": "caption-with-letter-spacing",
+              "label": "Uppercase"
+            }
+          ],
+          "default": "caption-with-letter-spacing",
+          "label": "Text style"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "small",
+              "label": "Small"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "large",
+              "label": "Large"
+            }
+          ],
+          "default": "medium",
+          "label": "Caption size"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "Body"
+            },
+            {
+              "value": "subtitle",
+              "label": "Subtitle"
+            }
+          ],
+          "default": "body",
+          "label": "Text style"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_color",
+          "label": "Button Color",
+          "default": "#000000"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "Use outline button"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image and blocks",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "Image and blocks",
+            "heading_size": "h1",
+            "text_color": "#000000"
+          }
+        },
+        {
+          "type": "caption",
+          "settings": {
+            "caption": "Add a tagline",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium",
+            "text_color": "#000000"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "body",
+            "text_color": "#000000"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop now",
+            "button_link": "#",
+            "button_color": "#000000",
+            "text_color": "#ffffff",
+            "button_style_secondary": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "Image with overlay text",
+      "settings": {
+        "position_overlay": true,
+        "glass": true,
+        "content_width": 60,
+        "left_position": 50,
+        "top_position": 50
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "Featured collection",
+            "heading_size": "h0",
+            "text_color": "#ffffff"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover our latest products with special offers this season.</p>",
+            "text_style": "subtitle",
+            "text_color": "#ffffff"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop collection",
+            "button_link": "#",
+            "button_color": "#ffffff",
+            "text_color": "#000000",
+            "button_style_secondary": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

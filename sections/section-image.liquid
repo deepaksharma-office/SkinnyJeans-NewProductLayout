@@ -1,0 +1,41 @@
+{{ 'center-image.css' | asset_url | stylesheet_tag }}
+<div
+  class="image_middle_wrap"
+  style="--width: {{ section.settings.width }}px;"
+>
+  <img
+    class="image_middle"
+    src="{{ section.settings.image | image_url }}"
+    width="{{ section.settings.image.width }}"
+    height="{{ section.settings.image.height }}"
+    loading="lazy"
+  >
+</div>
+
+{% schema %}
+{
+  "name": "Middle Image",
+  "settings": [
+    {
+      "type": "range",
+      "id": "width",
+      "label": "Image Size",
+      "min": 400,
+      "max": 2000,
+      "default": 1000,
+      "step": 200,
+      "unit": "px"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Middle Image"
+    }
+  ]
+}
+{% endschema %}

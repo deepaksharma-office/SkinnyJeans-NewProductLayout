@@ -1,0 +1,10 @@
+.image_middle_wrap{
+    width: var(--width);
+    margin: 0 auto;
+}
+
+.image_middle{
+    width: 100%;
+    height: auto;
+    line-height: 0;
+}

@@ -1,0 +1,271 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "multicolumn_JtdrCi": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_gPm7na": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-02-28_at_8.30.07_PM.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_zGJURR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/524911986_18058151195605234_2341404366550253775_n.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_LcrmP6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_8648.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pyzzJc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_6701_2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_i4mFdh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/473148740_1254424935628638_6519905031373871549_n.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_3gpaHK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-01-24_at_11.21.12_AM.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_tfMPyA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9227.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_tynbQA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screen_Shot_2022-04-18_at_12.00.51_PM.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Q7FYV9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Image_1-29-26_at_2.24_PM.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_a4XkWk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Image_4-7-26_at_10.00_PM.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_HHCnxq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-01-31_at_12.44.03_PM.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_KF6YkK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSC09091.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_gPm7na",
+        "column_zGJURR",
+        "column_LcrmP6",
+        "column_pyzzJc",
+        "column_i4mFdh",
+        "column_3gpaHK",
+        "column_tfMPyA",
+        "column_tynbQA",
+        "column_Q7FYV9",
+        "column_a4XkWk",
+        "column_HHCnxq",
+        "column_KF6YkK"
+      ],
+      "custom_css": [],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 6,
+        "columns_gap": 6,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "image_pjLACU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SkinnyJeans_LogoAssets_D4_Tree.webp",
+            "image_width": 90,
+            "alignment": "",
+            "gap_top": false,
+            "content": "",
+            "show_social": false,
+            "follow_text": "",
+            "payment_enable": false,
+            "payment_text": ""
+          }
+        },
+        "link_list_mnWWbj": {
+          "type": "link_list",
+          "settings": {
+            "heading": "About Us",
+            "menu": "main-menu",
+            "show_policy": true,
+            "gap_top": false,
+            "content": "",
+            "show_social": false,
+            "follow_text": "",
+            "payment_enable": false,
+            "payment_text": ""
+          }
+        },
+        "link_list_XG9rH7": {
+          "type": "link_list",
+          "settings": {
+            "heading": "More",
+            "menu": "more",
+            "show_policy": false,
+            "gap_top": false,
+            "content": "",
+            "show_social": false,
+            "follow_text": "",
+            "payment_enable": false,
+            "payment_text": ""
+          }
+        },
+        "link_list_kQEqYM": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Customer Care",
+            "menu": "footer",
+            "show_policy": false,
+            "gap_top": false,
+            "content": "",
+            "show_social": false,
+            "follow_text": "",
+            "payment_enable": false,
+            "payment_text": ""
+          }
+        },
+        "newsletter_ffwnEw": {
+          "type": "newsletter",
+          "settings": {
+            "newsletter_heading": "Stay In Touch",
+            "gap_top": false,
+            "content": "Sign up to receive updates and discounts",
+            "show_social": true,
+            "follow_text": "",
+            "payment_enable": false,
+            "payment_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_pjLACU",
+        "link_list_mnWWbj",
+        "link_list_XG9rH7",
+        "link_list_kQEqYM",
+        "newsletter_ffwnEw"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "newsletter_enable": true,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": false,
+        "show_policy": false,
+        "margin_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "multicolumn_JtdrCi",
+    "footer"
+  ]
+}

@@ -1,0 +1,135 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+{{ 'grids.css' | asset_url | stylesheet_tag }}
+
+<div
+  class="color-{{ section.settings.color_scheme }} isolate gradient"
+>
+  <div class="section-{{ section.id }}-padding">
+    <div class="page-width">
+      <div class="grids--section">
+        <div class="grid--inner">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'title' %}
+                <div
+                  class="grid--wrap {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  {{ block.shopify_attributes }}
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascade
+                    style="--animation-order: {{ forloop.index }};"
+                  {% endif %}
+                >
+                  <div class="title__block" style="--title--size: {{ block.settings.font_size }}px;">
+                    {{ block.settings.title }}
+                  </div>
+                </div>
+              {% when 'button' %}
+                <div
+                  class="grid--wrap {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} "
+                  {{ block.shopify_attributes }}
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascade
+                    style="--animation-order: {{ forloop.index }};"
+                  {% endif %}
+                >
+                  <a class="button__block" href="{{ block.settings.url }}" aria-label="{{ block.settings.label }}">
+                    {{ block.settings.label }}
+                  </a>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Grids",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title Text",
+          "default": "The Original Slimming Denim®"
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "min": 12,
+          "max": 80,
+          "step": 1,
+          "unit": "px",
+          "label": "Font Size",
+          "default": 32
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button Label",
+          "default": "SHOP SUMMER 2025 COLLECTION"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grids",
+      "blocks": [{ "type": "title" }, { "type": "button" }]
+    }
+  ]
+}
+{% endschema %}

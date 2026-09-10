@@ -1,0 +1,187 @@
+{{ 'full-image.css' | asset_url | stylesheet_tag }}
+<div class="fullscreen-banner-images">
+  {% if section.settings.fullscreen %}
+    <div class="page-width">
+  {% endif %}
+  <div
+    class="banner--blocks"
+    style="--gap: {{ section.settings.gap }}px; {% unless section.settings.fullscreen %}--padding: {{ section.settings.padding }}px;{% endunless %}"
+  >
+    {% for block in section.blocks %}
+      <div class="block--banner-image">
+        <div class="image--full-wrap">
+          {% if block.settings.enable_overlay %}
+            <div
+              class="overlay__block"
+              style="background-color: {{ block.settings.overlay_color }}; mix-blend-mode: {{ block.settings.overlay_type }};"
+            ></div>
+          {% endif %}
+          {% if block.settings.image != blank %}
+            <img
+              class="image--full"
+              src="{{ block.settings.image | image_url }}"
+              width="{{ block.settings.image }}"
+              height="{{ block.settings.image }}"
+              alt="{{ block.settings.title | default: 'Fullscreen Image Illustration' }}"
+              loading="lazy"
+            >
+          {%- else -%}
+            {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+        <div class="content--full-wrap">
+          <div class="content--overimage">
+            {% if block.settings.title != blank %}
+              <div
+                class="grid--wrap {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {{ block.shopify_attributes }}
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                <div class="title__block bold" style="--title--size: {{ block.settings.font_size }}px;">
+                  {{ block.settings.title }}
+                </div>
+              </div>
+            {% endif %}
+            {% if block.settings.label != blank %}
+              <div
+                class="grid--wrap {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} "
+                {{ block.shopify_attributes }}
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                <a class="button__block border" href="{{ block.settings.url }}" aria-label="{{ block.settings.label }}">
+                  {{ block.settings.label }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  {% if section.settings.fullscreen %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Fullimage",
+  "settings": [
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding",
+      "default": 32
+    },
+    {
+      "type": "checkbox",
+      "id": "fullscreen",
+      "label": "Constrain Width"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title Text",
+          "default": "The Original Slimming Denim®"
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "min": 12,
+          "max": 80,
+          "step": 1,
+          "unit": "px",
+          "label": "Font Size",
+          "default": 32
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button Label",
+          "default": "SHOP SUMMER 2025 COLLECTION"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_overlay",
+          "label": "Overlay Enable",
+          "default": false
+        },
+        {
+          "type": "color",
+          "alpha": true,
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "visible_if": "{{ block.settings.enable_overlay == true }}",
+          "default": "#11164a80"
+        },
+        {
+          "type": "select",
+          "id": "overlay_type",
+          "label": "Overlay Type",
+          "default": "none",
+          "options": [
+            { "label": "None", "value": "none" },
+            { "label": "Normal", "value": "normal" },
+            { "label": "Multiply", "value": "multiply" },
+            { "label": "Screen", "value": "screen" },
+            { "label": "Overlay", "value": "overlay" },
+            { "label": "Darken", "value": "darken" },
+            { "label": "Lighten", "value": "lighten" },
+            { "label": "Color Dodge", "value": "color-dodge" },
+            { "label": "Color Burn", "value": "color-burn" },
+            { "label": "Hard Light", "value": "hard-light" },
+            { "label": "Soft Light", "value": "soft-light" },
+            { "label": "Difference", "value": "difference" },
+            { "label": "Exclusion", "value": "exclusion" },
+            { "label": "Hue", "value": "hue" },
+            { "label": "Saturation", "value": "saturation" },
+            { "label": "Color", "value": "color" },
+            { "label": "Luminosity", "value": "luminosity" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fullimage"
+    }
+  ]
+}
+{% endschema %}

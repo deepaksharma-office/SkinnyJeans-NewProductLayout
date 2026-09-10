@@ -1,0 +1,89 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "text_images_wdnCjz": {
+      "type": "text-images",
+      "blocks": {
+        "heading_Kq6KDH": {
+          "type": "heading",
+          "settings": {
+            "text_color": "#000000",
+            "heading": "Our Story",
+            "heading_size": "h2"
+          }
+        },
+        "text_pdecwc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Twenty-five years ago I was getting ready for a party in East Hampton putting on my expensive, American-made jeans and was struck by how the jeans were designed to look rich and worn but were basically very unflattering.  In fact, the \"wear\" pattern on the denim actually made the body look <em>worse</em>: hips wider and legs shorter with wide horizontal lines low on the hip; butt and upper thighs bigger with large white areas accentuating them; pooched-out stomach with waistbands above the natural waist or spill-over with the waistband too low; and the front of the thighs bigger with large white areas smooshed across the thigh!! The back pockets had all these huge logos on them which looked utterly ridiculous.</p>",
+            "text_color": "#000000",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Kq6KDH",
+        "text_pdecwc"
+      ],
+      "name": "Image with overlay text",
+      "settings": {
+        "position": "right",
+        "content_type": "image",
+        "image": "shopify://shop_images/image.webp",
+        "sectionbackground": "#ffffff",
+        "contentcolor": "#ffffff",
+        "position_overlay": false,
+        "content_width": 60,
+        "left_position": 50,
+        "top_position": 50,
+        "glass": true,
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_ekFBeb": {
+      "type": "rich-text",
+      "blocks": {
+        "text_VUXTEb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>I had zero background in fashion and knew nothing about sewing -- I was a recovering lawyer from Los Angeles living in Manhattan. I kept thinking about all the ways I could change the wash and the fabrication- it kept bothering me so I knew it was a good idea. Denim was very 'hot' in the early aughts- huge premium American brands dominated the market. I couldn't compete at all with those brands on their level so I had to do something completely different. I decided to go forward, upending the fabrication and wash of jeans into slimming denim.</p><p>I did not know anyone in the business and at that time didn't even know where you made blue jeans. I tried to find factories in New York and crawled around the garment district until I found through a friend a pattern maker who agreed to make a jeans pattern for me. I showed her all the changes I wanted to make pulling apart my old premium jean that gave me the idea to do this. While we were doing this, I had to find denim fabric which was another nightmare as very few companies were making stretch denim at that time and what was available wasn't very good and certainly not technical. After endless research, I found a few companies that made stretch denim. I looked in New York and Texas for denim \"washing\" but finally realized the only place to make jeans was in Los Angeles. After endless more calling around and research, I found a company in L.A. that thought what I wanted to do was interesting and agreed to look at it. I took my sister-in-law as a pretend \"employee\" to L.A. to meet with the contractors. We had many tries, many failures, sample after sample was wrong, it was impossible to get the wash house to do something completely different and the jeans kept coming back looking like every jean the factories were used to making - like a gravitational pull, it was almost impossible to make a change. It was so depressing and time-consuming, endless Fedex deliveries of samples, flights to L.A. then finally a sample came out correctly. We sat in the fitting room with the production manager and everyone in the room was shocked at how beautiful and slimming the jeans were! That's when I knew this was going to work.</p><p>I was trying to come up with a name for my company and was watching an old rerun of <em>Sex & The City</em> where Miranda finally loses her baby weight chasing Brady around and sees her dreaded \"skinny jeans\" in the back of her closet-- jeans that only fit you when you're skinny. I thought that was a good name for the jeans because they help make you look skinny - so I trademarked SkinnyJeans® and got the URL www.skinnyjeans.com. <em> (Several years later, stores on Madison and Fifth Avenues had their windows filled with the new style \"skinny jeans\"-- very narrow leg and ankle jeans. Although our jeans were mostly a slim bootcut or straight cut to be the most flattering to the body, we still got tons of orders on our website because Google searches for \"skinny jeans\" brought www.skinnyjeans.com up first. Although we were very happy about the free publicity, we trademarked \"Slimming Denim®\" to clarify that our jeans make you look skinny.)</em></p><p>To get the sample into production and to market was another drawn-out, frustrating process. I was underfunded and was unable to raise money on a completely unproven idea competing against successful companies. I went to trade shows in Las Vegas with one pair of jeans sitting alone in a booth when finally a store agreed to buy a run of jeans from me. My first productions were tiny and were based largely on the faith of the early contractors helping me out and believing in what I was doing. To actually produce enough jeans I had to come up with more money so I found some stenciled feather scarves that I could resell for cash at street fairs and Christmas markets around New York City. I kept plugging away and finally a store in New York saw us at a store in another state and brought us to the City. That's when I bribed all my girlfriends to go to that store and buy my jeans and rave about them. Then a national catalogue was shopping for new products, put us in their catalog and gave us national exposure. Then magazines and television talk shows and news shows looking for innovative products started calling to do features on our slimming denim...</p><p>Fast forward to today: During Covid, manufacturing was shut down in L.A. and many contractors either merged, downsized or closed shop.  Most formerly premium U.S. brands moved their production overseas, typically to Mexico, Turkey, Egypt, Turkmenistan, Africa or China. We kept our production in L.A., choosing to support American manufacturing, aside from the fact that the best denim has always been cut, sewn and washed in Los Angeles, California.  Denim fabrics had also become more and more technical so we did extensive testing to find the fabric that was the best for shaping, recovery and hand-feel. By this time, we relocated our offices to Palm Beach, Florida, and are doing a \"relaunch\" in that we are offering several new cuts using our new technical denim. Because so many of our customers have waited for new styles we offered an early discount to our loyal customers and friends.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_VUXTEb"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "text_images_wdnCjz",
+    "rich_text_ekFBeb"
+  ]
+}

@@ -1,0 +1,292 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_GmxVAc": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/6D7054A2-F0C0-4FCE-881C-35BAE7303D2B_1_201_a.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "full_image_PtGDzX": {
+      "type": "full-image",
+      "blocks": {
+        "block_wDbxcc": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/IMG_8550_other_48c4bbf8-b109-4266-9b1f-8a702cca15df.webp",
+            "title": "",
+            "font_size": 32,
+            "url": "",
+            "label": "",
+            "enable_overlay": true,
+            "overlay_color": "#11164a80",
+            "overlay_type": "screen"
+          }
+        },
+        "block_AgiEtT": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/sjc2.webp",
+            "title": "",
+            "font_size": 32,
+            "url": "",
+            "label": "",
+            "enable_overlay": true,
+            "overlay_color": "#11164a80",
+            "overlay_type": "normal"
+          }
+        }
+      },
+      "block_order": [
+        "block_wDbxcc",
+        "block_AgiEtT"
+      ],
+      "disabled": true,
+      "name": "Fullimage",
+      "settings": {
+        "gap": 12,
+        "padding": 32,
+        "fullscreen": true
+      }
+    },
+    "custom_section_ptCqw3": {
+      "type": "custom-section",
+      "blocks": {
+        "image_8rE8Xr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/9.webp"
+          }
+        },
+        "image_zCjeka": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/10.webp"
+          }
+        },
+        "title_ik6t8m": {
+          "type": "title",
+          "settings": {
+            "title": "The Original\nSlimming Denim®",
+            "text": "<em>Since 2003</em>",
+            "italic": true
+          }
+        }
+      },
+      "block_order": [
+        "image_8rE8Xr",
+        "image_zCjeka",
+        "title_ik6t8m"
+      ],
+      "name": "Custom Section",
+      "settings": {
+        "collection": "frontpage",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "image_size": 200,
+        "title_size": 34,
+        "title_color": "#000000",
+        "title_align": "center",
+        "product_spacing": 30
+      }
+    },
+    "grids_DWcaML": {
+      "type": "grids",
+      "blocks": {
+        "title_9aneG6": {
+          "type": "title",
+          "settings": {
+            "title": "The Original Slimming Denim®",
+            "font_size": 55
+          }
+        },
+        "button_Xh6int": {
+          "type": "button",
+          "settings": {
+            "url": "shopify://collections/all",
+            "label": "SHOP SUMMER 2025 COLLECTION"
+          }
+        }
+      },
+      "block_order": [
+        "title_9aneG6",
+        "button_Xh6int"
+      ],
+      "disabled": true,
+      "name": "Grids",
+      "settings": {
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "images_GXFL9k": {
+      "type": "images",
+      "blocks": {
+        "logo_gjUCAP": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/today-show-seeklogo.webp",
+            "image_width": 100
+          }
+        },
+        "logo_MVMbQj": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/instyle-seeklogo.webp",
+            "image_width": 150
+          }
+        },
+        "logo_eF8GhD": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/wwd-seeklogo.webp",
+            "image_width": 150
+          }
+        },
+        "logo_yJqMNC": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/people-magazine-seeklogo.webp",
+            "image_width": 150
+          }
+        },
+        "logo_a9FYQG": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/los-angeles-times-seeklogo.webp",
+            "image_width": 200
+          }
+        },
+        "logo_KeQnUK": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/oprahdaily-logo.webp",
+            "image_width": 150
+          }
+        },
+        "logo_kNyd39": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/cnbc-logo_brandlogos.net_rqxb4.webp",
+            "image_width": 100
+          }
+        },
+        "logo_fmGczF": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/the-new-york-times-magazine-seeklogo.webp",
+            "image_width": 300
+          }
+        },
+        "logo_Nqptwj": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/glamour-seeklogo.webp",
+            "image_width": 150
+          }
+        },
+        "logo_JzQwFW": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/newbeauty-seeklogo.webp",
+            "image_width": 200
+          }
+        }
+      },
+      "block_order": [
+        "logo_gjUCAP",
+        "logo_MVMbQj",
+        "logo_eF8GhD",
+        "logo_yJqMNC",
+        "logo_a9FYQG",
+        "logo_KeQnUK",
+        "logo_kNyd39",
+        "logo_fmGczF",
+        "logo_Nqptwj",
+        "logo_JzQwFW"
+      ],
+      "name": "Featured Logos",
+      "settings": {
+        "title": "AS FEATURED IN:",
+        "title_bg_color": "#fff9fb",
+        "padding_top": 15,
+        "padding_bottom": 15
+      }
+    },
+    "full_image_ygd9Bx": {
+      "type": "full-image",
+      "blocks": {
+        "block_VftiXQ": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/sjc2_1.webp",
+            "title": "",
+            "font_size": 32,
+            "url": "",
+            "label": "",
+            "enable_overlay": false,
+            "overlay_color": "#11164a80",
+            "overlay_type": "none"
+          }
+        },
+        "block_3cXccx": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/IMG_8550_7_1.webp",
+            "title": "The Original Slimming Denim®",
+            "font_size": 50,
+            "url": "shopify://collections/all",
+            "label": "SHOP SUMMER 2025 COLLECTION",
+            "enable_overlay": false,
+            "overlay_color": "#11164a80",
+            "overlay_type": "none"
+          }
+        }
+      },
+      "block_order": [
+        "block_VftiXQ",
+        "block_3cXccx"
+      ],
+      "disabled": true,
+      "name": "Fullimage",
+      "settings": {
+        "gap": 0,
+        "padding": 0,
+        "fullscreen": false
+      }
+    }
+  },
+  "order": [
+    "image_banner_GmxVAc",
+    "full_image_PtGDzX",
+    "custom_section_ptCqw3",
+    "grids_DWcaML",
+    "images_GXFL9k",
+    "full_image_ygd9Bx"
+  ]
+}

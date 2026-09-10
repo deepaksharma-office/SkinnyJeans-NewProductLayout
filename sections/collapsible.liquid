@@ -1,0 +1,154 @@
+{{ 'collapsible.css' | asset_url | stylesheet_tag }}
+
+{% schema %}
+{
+  "name": "Collapsible Content",
+  "class": "collapsible-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Collapsible Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "open",
+      "label": "Open Default",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 100,
+      "id": "margin_bottom",
+      "label": "Gap Bottom",
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 100,
+      "id": "margin_top",
+      "label": "Gap Top",
+      "default": 20,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Rich Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Your content goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collapsible Content",
+      "category": "Custom Content"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.background }};
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+    margin-top: {{ section.settings.margin_top }}px;
+  }
+</style>
+
+<div class="page-width">
+  <div
+    class="nshen_collapsible-section {% if section.settings.open %}nshen_open{% endif %}"
+    data-section-id="{{ section.id }}"
+  >
+    <div class="nshen_collapsible-header" onclick="nshen_toggleSection('{{ section.id }}')">
+      <h2 class="collapsible_title_custom">{{ section.settings.title }}</h2>
+      <span class="nshen_collapsible-arrow">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="custom-icon"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
+      </span>
+    </div>
+    <div id="nshen_content-{{ section.id }}" class="nshen_collapsible-content">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'content' %}
+            <div class="content-block" {{ block.shopify_attributes }}>
+              {{ block.settings.content }}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  function nshen_toggleSection(sectionId) {
+    const sectionEl = document.querySelector(`#shopify-section-${sectionId} .nshen_collapsible-section`);
+    const contentEl = document.querySelector(`#nshen_content-${sectionId}`);
+
+    if (!sectionEl || !contentEl) return;
+
+    const isOpen = sectionEl.classList.contains('nshen_open');
+
+    if (isOpen) {
+      // Closing
+      contentEl.style.maxHeight = contentEl.scrollHeight + 'px'; // Lock height for transition
+      requestAnimationFrame(() => {
+        contentEl.style.maxHeight = '0px';
+      });
+      sectionEl.classList.remove('nshen_open');
+    } else {
+      // Opening
+      contentEl.style.maxHeight = contentEl.scrollHeight + 'px';
+      sectionEl.classList.add('nshen_open');
+    }
+  }
+
+  // Ensure it works in Shopify Theme Editor
+  document.addEventListener('shopify:section:load', (e) => {
+    const sectionEl = e.target.querySelector('.nshen_collapsible-section');
+    if (sectionEl && sectionEl.classList.contains('nshen_open')) {
+      const contentEl = sectionEl.querySelector('.nshen_collapsible-content');
+      if (contentEl) {
+        contentEl.style.maxHeight = contentEl.scrollHeight + 'px';
+      }
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Set initial height if open by default
+    document.querySelectorAll('.nshen_collapsible-section').forEach((sectionEl) => {
+      if (sectionEl.classList.contains('nshen_open')) {
+        const contentEl = sectionEl.querySelector('.nshen_collapsible-content');
+        if (contentEl) {
+          contentEl.style.maxHeight = contentEl.scrollHeight + 'px';
+        }
+      }
+    });
+  });
+</script>

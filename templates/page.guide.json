@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_CMYB6t": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_emhRp4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Size Guide",
+            "heading_size": "h2"
+          }
+        },
+        "text_8y4Nie": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our sizing is based on American-made, premium denim jeans and is in line with the largest U.S. premium brands.  We don't use vanity sizing, and our size chart is very helpful in determining your denim size. If you need help, contact us at orders@skinnyjeans.com.</p>"
+          }
+        },
+        "text_kY3LVC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ page.content }}</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_emhRp4",
+        "text_8y4Nie",
+        "text_kY3LVC"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_CMYB6t"
+  ]
+}

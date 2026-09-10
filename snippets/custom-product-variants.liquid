@@ -1,0 +1,43 @@
+{% unless product.has_only_default_variant %}
+  <div class="custom-main-product__options">
+    {% for option in product.options_with_values %}
+      {%- liquid
+        assign option_name = option.name | downcase
+        assign is_color = false
+        if option_name == 'color' or option_name == 'colour' or option_name == 'wash'
+          assign is_color = true
+        endif
+      -%}
+      <fieldset class="custom-main-product__option">
+        <legend>{{ option.name | escape }}{% if is_color %}: <span>{{ option.selected_value | escape }}</span>{% endif %}</legend>
+        {% if option_name == 'size' and block.settings.size_guide_page != blank %}
+          <button type="button" class="custom-main-product__guide-link" data-custom-guide>Size guide</button>
+        {% endif %}
+        <div class="custom-main-product__values{% if is_color %} custom-main-product__values--swatches{% endif %}">
+          {% for value in option.values %}
+            {%- liquid
+              assign input_id = 'custom-option-' | append: section.id | append: '-' | append: option.position | append: '-' | append: value.id
+              assign relevant_variant = value.variant
+            -%}
+            <div class="custom-main-product__choice">
+              <input type="radio" class="custom-main-product__radio" id="{{ input_id }}" name="custom-option-{{ section.id }}-{{ option.position }}" value="{{ value | escape }}" data-option-value-id="{{ value.id }}" data-product-url="{{ value.product_url }}" form="{{ form_id }}" {% if value.selected %}checked{% endif %}>
+              <label for="{{ input_id }}" class="custom-main-product__value{% unless value.available %} custom-main-product__value--unavailable{% endunless %}{% if is_color and value.swatch != blank %} custom-main-product__swatch{% endif %}" title="{{ value | escape }}">
+                {% if is_color and value.swatch.image %}
+                  {{ value.swatch.image | image_url: width: 96 | image_tag: widths: '48, 72, 96', sizes: '36px', loading: 'lazy', alt: '' }}
+                  <span class="custom-main-product__visually-hidden">{{ value | escape }}</span>
+                {% elsif is_color and value.swatch.color %}
+                  <span class="custom-main-product__swatch-color" style="background-color: rgb({{ value.swatch.color.rgb }});"></span>
+                  <span class="custom-main-product__visually-hidden">{{ value | escape }}</span>
+                {% else %}
+                  {{ value | escape }}
+                {% endif %}
+                {% unless value.available %}<span class="custom-main-product__visually-hidden"> — {{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>{% endunless %}
+              </label>
+              {% if is_color and relevant_variant.metafields.custom.new_tag.value == true %}<span class="custom-main-product__new">New</span>{% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </fieldset>
+    {% endfor %}
+  </div>
+{% endunless %}

@@ -1,0 +1,159 @@
+{{ 'custom-main-product.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'custom-main-product.js' | asset_url }}" defer="defer"></script>
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign custom_form_id = 'custom-product-form-' | append: section.id
+-%}
+<custom-main-product
+  id="CustomMainProduct-{{ section.id }}"
+  class="custom-main-product color-{{ section.settings.color_scheme }}"
+  data-section-id="{{ section.id }}"
+  data-product-url="{{ product.url }}"
+  data-product-id="{{ product.id }}"
+  data-cart-url="{{ routes.cart_url }}"
+  data-cart-add-url="{{ routes.cart_add_url }}"
+  data-mobile-slider="{{ section.settings.enable_mobile_slider }}"
+  data-zoom="{{ section.settings.enable_desktop_zoom }}"
+  data-editorial-heading="{{ section.settings.editorial_heading }}"
+  style="--custom-gallery-gap: {{ section.settings.gallery_gap }}px; --custom-padding: {{ section.settings.padding }}px;"
+>
+  {%- if product != blank -%}
+    <div class="custom-main-product__layout">
+      {% render 'custom-product-gallery', product: product, section: section %}
+      <div class="custom-main-product__info">
+        {%- assign accordion_open = false -%}
+        {%- assign description_blocks = section.blocks | where: 'type', 'description' -%}
+        {%- if description_blocks.size > 0 and product.description != blank -%}
+          {%- assign description_present = true -%}
+        {%- endif -%}
+        {%- for block in section.blocks -%}
+          <div class="custom-main-product__block custom-main-product__block--{{ block.type }}" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
+            {%- case block.type -%}
+              {%- when '@app' -%}
+                {% render block %}
+              {%- when 'title' -%}
+                <h1 class="custom-main-product__title">{{ product.title | escape }}</h1>
+              {%- when 'price' -%}
+                <div data-custom-update="price" aria-live="polite">
+                  {% render 'custom-product-price', product: product, variant: current_variant, section: section %}
+                </div>
+              {%- when 'rating' -%}
+                {% render 'custom-product-rating', product: product, block: block %}
+              {%- when 'divider' -%}
+                <hr class="custom-main-product__divider">
+              {%- when 'variant_selector' -%}
+                <div data-custom-update="variants">
+                  {% render 'custom-product-variants', product: product, section: section, block: block, form_id: custom_form_id %}
+                </div>
+                {%- if block.settings.size_guide_page != blank -%}
+                  <dialog class="custom-main-product__dialog custom-main-product__guide" id="custom-size-guide-{{ section.id }}" aria-labelledby="custom-guide-title-{{ section.id }}">
+                    <div class="custom-main-product__dialog-panel">
+                      <button type="button" class="custom-main-product__close" data-custom-close aria-label="Close size guide" autofocus>×</button>
+                      <h2 id="custom-guide-title-{{ section.id }}">{{ block.settings.size_guide_page.title | escape }}</h2>
+                      <div class="custom-main-product__richtext">{{ block.settings.size_guide_page.content }}</div>
+                    </div>
+                  </dialog>
+                {%- endif -%}
+              {%- when 'inventory' -%}
+                <div data-custom-update="inventory" aria-live="polite">
+                  {% render 'custom-product-inventory', variant: current_variant, block: block %}
+                </div>
+              {%- when 'buy_buttons' -%}
+                <div data-custom-update="buy">
+                  {% render 'custom-product-buy-buttons', product: product, variant: current_variant, block: block, form_id: custom_form_id %}
+                </div>
+              {%- when 'description', 'collapsible' -%}
+                {%- liquid
+                  assign content = block.settings.content
+                  assign heading = block.settings.heading
+                  assign is_open = false
+                  if block.type == 'description'
+                    assign content = product.description
+                    assign heading = 'Description'
+                    assign is_open = true
+                  elsif content == blank
+                    case block.settings.metafield_source
+                      when 'fit'
+                        if product.metafields.custom.design_and_fit != blank
+                          assign content = product.metafields.custom.design_and_fit | metafield_tag
+                        endif
+                      when 'care'
+                        if product.metafields.custom.fabric_and_care != blank
+                          assign content = product.metafields.custom.fabric_and_care | metafield_tag
+                        endif
+                    endcase
+                  endif
+                  if block.settings.initially_open and description_present != true and accordion_open == false
+                    assign is_open = true
+                  endif
+                  if is_open and content != blank
+                    assign accordion_open = true
+                  endif
+                -%}
+                {% if content != blank %}
+                  {% render 'custom-product-accordion', heading: heading, content: content, is_open: is_open, section: section, block: block %}
+                {% endif %}
+            {%- endcase -%}
+          </div>
+        {%- endfor -%}
+        <p class="custom-main-product__status" data-custom-status role="status"></p>
+        <p class="custom-main-product__error" data-custom-error role="alert" hidden></p>
+      </div>
+    </div>
+    <div data-custom-state data-variant-id="{{ current_variant.id }}" data-media-id="{{ current_variant.featured_media.id }}" hidden></div>
+    <noscript><p>To choose another option, enable JavaScript. The displayed variant can be added to your cart.</p></noscript>
+  {%- elsif request.design_mode -%}
+    <p>Add this section to a product template to preview its product information.</p>
+  {%- endif -%}
+</custom-main-product>
+{% schema %}
+{
+  "name": "Custom main product",
+  "tag": "section",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "editorial_heading", "label": "Use editorial serif headings", "info": "Use the browser serif font for the reference look. Disable to use the theme heading font.", "default": true },
+    { "type": "range", "id": "gallery_gap", "label": "Gallery gap", "min": 0, "max": 16, "step": 1, "unit": "px", "default": 4 },
+    { "type": "checkbox", "id": "enable_image_popup", "label": "Enable image popup", "default": true },
+    { "type": "checkbox", "id": "enable_desktop_zoom", "label": "Enable desktop popup zoom", "default": true },
+    { "type": "checkbox", "id": "enable_mobile_slider", "label": "Enable mobile image slider", "default": true },
+    { "type": "range", "id": "padding", "label": "Top and bottom spacing", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 36 }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    { "type": "title", "name": "Title", "limit": 1 },
+    { "type": "price", "name": "Price and payment terms", "limit": 1 },
+    { "type": "rating", "name": "Rating", "limit": 1, "settings": [
+      { "type": "text", "id": "reviews_anchor", "label": "Reviews section ID", "default": "judgeme_product_reviews", "info": "Without #. Keep the Judge.me review widget on the product template." }
+    ] },
+    { "type": "divider", "name": "Divider" },
+    { "type": "variant_selector", "name": "Variant selector", "limit": 1, "settings": [
+      { "type": "page", "id": "size_guide_page", "label": "Size guide page" }
+    ] },
+    { "type": "inventory", "name": "Inventory", "limit": 1, "settings": [
+      { "type": "range", "id": "red_threshold", "label": "Red stock threshold", "min": 1, "max": 20, "step": 1, "default": 3 },
+      { "type": "range", "id": "orange_threshold", "label": "Orange stock threshold", "min": 1, "max": 50, "step": 1, "default": 10 },
+      { "type": "range", "id": "green_threshold", "label": "Show stock count up to", "info": "Above this level, show In stock. Use ascending thresholds. All quantities above orange are green.", "min": 1, "max": 100, "step": 1, "default": 20 }
+    ] },
+    { "type": "buy_buttons", "name": "Buy buttons", "limit": 1, "settings": [
+      { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Show accelerated checkout", "default": true }
+    ] },
+    { "type": "description", "name": "Description", "limit": 1 },
+    { "type": "collapsible", "name": "Collapsible", "settings": [
+      { "type": "text", "id": "heading", "label": "Heading", "default": "Details" },
+      { "type": "richtext", "id": "content", "label": "Content" },
+      { "type": "select", "id": "metafield_source", "label": "Use product content when empty", "default": "none", "options": [
+        { "value": "none", "label": "None" }, { "value": "fit", "label": "Design and fit" }, { "value": "care", "label": "Fabric and care" }
+      ] },
+      { "type": "checkbox", "id": "initially_open", "label": "Initially open", "info": "Description takes priority. Only one panel starts open.", "default": false }
+    ] }
+  ],
+  "presets": [{ "name": "Custom product information", "blocks": [
+    { "type": "title" }, { "type": "price" }, { "type": "rating" }, { "type": "divider" },
+    { "type": "variant_selector" }, { "type": "inventory" }, { "type": "buy_buttons" }, { "type": "description" },
+    { "type": "collapsible", "settings": { "heading": "Fit & measurements", "metafield_source": "fit" } },
+    { "type": "collapsible", "settings": { "heading": "Fabric & care", "metafield_source": "care" } }
+  ] }]
+}
+{% endschema %}

@@ -1,0 +1,19 @@
+{% comment %}Server money formatting also applies to every section-rendered variant response.{% endcomment %}
+{% if variant != blank %}
+  <div class="custom-main-product__price">
+    <span><span class="custom-main-product__visually-hidden">{% if variant.compare_at_price > variant.price %}{{ 'products.product.price.sale_price' | t }}{% else %}{{ 'products.product.price.regular_price' | t }}{% endif %}</span>
+      {% if settings.currency_code_enabled %}{{ variant.price | money_with_currency }}{% else %}{{ variant.price | money }}{% endif %}
+    </span>
+    {% if variant.compare_at_price > variant.price %}
+      <s><span class="custom-main-product__visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+        {% if settings.currency_code_enabled %}{{ variant.compare_at_price | money_with_currency }}{% else %}{{ variant.compare_at_price | money }}{% endif %}
+      </s>
+    {% endif %}
+    {% if variant.unit_price_measurement %}{% render 'unit-price', price: variant.unit_price, measurement: variant.unit_price_measurement %}{% endif %}
+  </div>
+{% endif %}
+{%- assign terms_form_id = 'custom-payment-terms-' | append: section.id -%}
+{% form 'product', product, id: terms_form_id, class: 'custom-main-product__terms' %}
+  <input type="hidden" name="id" value="{{ variant.id }}" {% if variant == blank %}disabled{% endif %}>
+  {% if variant != blank %}{{ form | payment_terms }}{% endif %}
+{% endform %}

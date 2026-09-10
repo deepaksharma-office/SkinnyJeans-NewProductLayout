@@ -1,0 +1,21 @@
+{%- liquid
+  assign can_buy = variant.available
+  if variant == blank or product.requires_selling_plan
+    assign can_buy = false
+  endif
+  if variant.inventory_management != blank and variant.inventory_policy != 'continue' and variant.quantity_rule.min > variant.inventory_quantity
+    assign can_buy = false
+  endif
+-%}
+{% form 'product', product, id: form_id, class: 'custom-main-product__form', data-custom-buy-form: '' %}
+  <input type="hidden" name="id" value="{{ variant.id }}" {% unless can_buy %}disabled{% endunless %}>
+  <input type="hidden" name="quantity" value="{{ variant.quantity_rule.min | default: 1 }}">
+  <button type="submit" name="add" class="custom-main-product__add" {% unless can_buy %}disabled{% endunless %}>
+    {% if variant == blank or product.requires_selling_plan %}{{ 'products.product.unavailable' | t }}{% elsif can_buy == false %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}
+  </button>
+  <div class="custom-main-product__payment" {% unless can_buy %}hidden{% endunless %}>
+    {% if block.settings.show_dynamic_checkout and can_buy %}{{ form | payment_button }}{% endif %}
+  </div>
+  {% if product.requires_selling_plan %}<p>This product requires a subscription purchase option. Please contact us to order.</p>{% endif %}
+  {% if variant.quantity_rule.min > 1 %}<p>Minimum order: {{ variant.quantity_rule.min }}</p>{% endif %}
+{% endform %}

@@ -1,0 +1,53 @@
+{%- assign images = product.media | where: 'media_type', 'image' -%}
+<div class="custom-main-product__gallery-wrapper">
+  <div class="custom-main-product__gallery" data-custom-gallery aria-label="Product images">
+    {% for media in images %}
+      {%- liquid
+        assign image_alt = media.alt
+        if image_alt == blank
+          assign image_alt = product.title | append: ' — image ' | append: forloop.index
+        endif
+        assign loading = 'lazy'
+        assign priority = 'auto'
+        if forloop.first
+          assign loading = 'eager'
+          assign priority = 'high'
+        endif
+      -%}
+      <div class="custom-main-product__media" data-media-id="{{ media.id }}">
+        {% if section.settings.enable_image_popup %}<button type="button" data-custom-image="{{ forloop.index0 }}" data-full-src="{{ media.preview_image | image_url: width: 2400 }}" aria-label="Open image {{ forloop.index }}: {{ image_alt | escape }}">{% endif %}
+          {{ media.preview_image | image_url: width: 1200 | image_tag: widths: '320, 480, 640, 800, 1000, 1200', sizes: '(min-width: 1600px) 440px, (min-width: 990px) 28vw, (min-width: 750px) 46vw, 100vw', loading: loading, fetchpriority: priority, alt: image_alt }}
+        {% if section.settings.enable_image_popup %}</button>{% endif %}
+      </div>
+    {% else %}
+      <div class="custom-main-product__placeholder">{{ 'product-1' | placeholder_svg_tag }}<span>No product images available</span></div>
+    {% endfor %}
+  </div>
+  {% if images.size > 1 and section.settings.enable_mobile_slider %}
+    <div class="custom-main-product__pagination" aria-label="Choose product image">
+      {% for media in images %}<button type="button" data-custom-dot="{{ forloop.index0 }}" aria-label="Image {{ forloop.index }} of {{ images.size }}" {% if forloop.first %}aria-current="true"{% endif %}><span></span></button>{% endfor %}
+    </div>
+  {% endif %}
+</div>
+{% if section.settings.enable_image_popup and images.size > 0 %}
+  <dialog class="custom-main-product__dialog custom-main-product__viewer" data-custom-viewer aria-label="Product image viewer">
+    <button type="button" class="custom-main-product__close" data-custom-close aria-label="Close image viewer" autofocus>×</button>
+    <div class="custom-main-product__viewer-track" data-custom-viewer-track>
+      {% for media in images %}
+        <div class="custom-main-product__viewer-slide" data-custom-slide="{{ forloop.index0 }}" aria-label="Image {{ forloop.index }} of {{ images.size }}">
+          <div class="custom-main-product__viewer-stage">
+            <span class="custom-main-product__loader" aria-hidden="true"></span>
+            {% comment %}Template content is inert: high resolution sources are assigned only on opening a slide.{% endcomment %}
+            <template><img width="{{ media.preview_image.width }}" height="{{ media.preview_image.height }}" alt="{{ media.alt | default: product.title | escape }}"></template>
+            <p data-custom-image-error hidden role="status">Image could not load. <button type="button" data-custom-retry>Try again</button></p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% if images.size > 1 %}
+      <button type="button" class="custom-main-product__previous" data-custom-previous aria-label="Previous image">←</button>
+      <button type="button" class="custom-main-product__next" data-custom-next aria-label="Next image">→</button>
+    {% endif %}
+    <p class="custom-main-product__viewer-count" data-custom-viewer-count role="status"></p>
+  </dialog>
+{% endif %}

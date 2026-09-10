@@ -1,0 +1,11 @@
+<div class="custom-main-product__accordion" data-custom-accordion>
+  <h2 class="custom-main-product__accordion-heading">
+    <button type="button" id="custom-heading-{{ section.id }}-{{ block.id }}" aria-expanded="{{ is_open }}" aria-controls="custom-panel-{{ section.id }}-{{ block.id }}" data-custom-accordion-toggle>
+      {{ heading | escape }}
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 6 5 5 5-5" stroke="currentColor" stroke-width="1.3"/></svg>
+    </button>
+  </h2>
+  <div id="custom-panel-{{ section.id }}-{{ block.id }}" class="custom-main-product__accordion-panel" role="region" aria-labelledby="custom-heading-{{ section.id }}-{{ block.id }}" data-open="{{ is_open }}">
+    <div><div class="custom-main-product__richtext">{{ content }}</div></div>
+  </div>
+</div>

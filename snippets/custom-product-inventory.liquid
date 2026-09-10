@@ -1,0 +1,22 @@
+{% if variant != blank %}
+  {%- liquid
+    assign stock_color = 'green'
+    assign orange = block.settings.orange_threshold | at_least: block.settings.red_threshold
+    assign count_limit = block.settings.green_threshold | at_least: orange
+    if variant.inventory_quantity <= block.settings.red_threshold
+      assign stock_color = 'red'
+    elsif variant.inventory_quantity <= orange
+      assign stock_color = 'orange'
+    endif
+  -%}
+  <p class="custom-main-product__inventory" data-stock="{% if variant.inventory_management != blank %}{{ stock_color }}{% else %}green{% endif %}">
+    {% if variant.available %}
+      <span class="custom-main-product__pulse" aria-hidden="true"></span>
+      {% if variant.inventory_management != blank and variant.inventory_quantity > 0 and variant.inventory_quantity <= count_limit %}
+        Only {{ variant.inventory_quantity }} left in stock
+      {% elsif variant.inventory_management != blank and variant.inventory_quantity <= 0 and variant.inventory_policy == 'continue' %}
+        Available to order
+      {% else %}In stock{% endif %}
+    {% else %}{{ 'products.product.sold_out' | t }}{% endif %}
+  </p>
+{% endif %}

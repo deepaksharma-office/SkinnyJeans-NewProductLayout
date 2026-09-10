@@ -1,0 +1,18 @@
+{% comment %}Judge.me is installed as app blocks. Use real standard review metafields;
+merchants can replace this block with Judge.me's preview badge via @app support.{% endcomment %}
+{%- liquid
+  assign rating = product.metafields.reviews.rating.value
+  assign count = product.metafields.reviews.rating_count.value | default: 0
+-%}
+{% if rating != blank and count > 0 %}
+  {%- assign percent = rating.rating | times: 100.0 | divided_by: rating.scale_max -%}
+  <div class="custom-main-product__rating">
+    <span class="custom-main-product__stars" style="--custom-rating: {{ percent }}%;" role="img" aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: rating.rating, rating_max: rating.scale_max | escape }}">
+      <span aria-hidden="true">★★★★★</span><span aria-hidden="true">★★★★★</span>
+    </span>
+    <span>{{ rating.rating | round: 1 }}</span>
+    {% if block.settings.reviews_anchor != blank %}
+      <a href="#{{ block.settings.reviews_anchor | escape }}">{{ count }} {% if count == 1 %}review{% else %}reviews{% endif %}</a>
+    {% else %}<span>{{ count }} {% if count == 1 %}review{% else %}reviews{% endif %}</span>{% endif %}
+  </div>
+{% endif %}

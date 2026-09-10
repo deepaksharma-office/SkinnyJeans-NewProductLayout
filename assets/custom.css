@@ -147,6 +147,8 @@ cart-remove-button .button:not([disabled]){
   }
 }
 
+.custom_font { --font-heading-family: ui-serif, Georgia, serif !important; --font-heading-weight: 400; }
+
 
 /* Mobile Layout */
 @media (max-width: 768px) {

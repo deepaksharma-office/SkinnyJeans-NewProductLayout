@@ -94,7 +94,7 @@
 .custom-main-product__viewer { width: 100%; height: 100%; height: 100dvh; background: transparent; overflow: hidden; }
 .custom-main-product__viewer-track { display: flex; width: 100%; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
 .custom-main-product__viewer-track::-webkit-scrollbar { display: none; }
-.custom-main-product__viewer-slide { flex: 0 0 100%; height: 100%; scroll-snap-align: center; display: grid; place-items: center; padding: 64px; }
+.custom-main-product__viewer-slide { flex: 0 0 100%; height: 100%; scroll-snap-align: center; display: grid; place-items: center; padding: 20px 64px; }
 .custom-main-product__viewer-stage { position: relative; height: 100%; width: fit-content; max-width: 100%; overflow: hidden; display: grid; place-items: center; }
 .custom-main-product__viewer-stage img { display: block; width: auto; max-width: 680px; height: 100%; object-fit: contain; transition: transform .25s ease; }
 .custom-main-product__viewer-slide[data-loading=true] img { opacity: .55; }

@@ -69,6 +69,7 @@
         "buy_buttons",
         "share"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -83,6 +84,93 @@
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
+      }
+    },
+    "custom_main_product_kJH9Um": {
+      "type": "custom-main-product",
+      "blocks": {
+        "title_nEwiLJ": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_TYbyPH": {
+          "type": "price",
+          "settings": {}
+        },
+        "rating_mHJjhF": {
+          "type": "rating",
+          "settings": {
+            "reviews_anchor": "judgeme_product_reviews"
+          }
+        },
+        "divider_j9Vxek": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant_selector_ekbdd4": {
+          "type": "variant_selector",
+          "settings": {
+            "size_guide_page": ""
+          }
+        },
+        "inventory_xqxqY7": {
+          "type": "inventory",
+          "settings": {
+            "red_threshold": 3,
+            "orange_threshold": 10,
+            "green_threshold": 20
+          }
+        },
+        "buy_buttons_HcXqXr": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "description_4A7LP7": {
+          "type": "description",
+          "settings": {}
+        },
+        "collapsible_G6MBFh": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Fit & measurements",
+            "content": "",
+            "metafield_source": "fit",
+            "initially_open": false
+          }
+        },
+        "collapsible_bFFJ4i": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Fabric & care",
+            "content": "",
+            "metafield_source": "care",
+            "initially_open": false
+          }
+        }
+      },
+      "block_order": [
+        "title_nEwiLJ",
+        "price_TYbyPH",
+        "rating_mHJjhF",
+        "divider_j9Vxek",
+        "variant_selector_ekbdd4",
+        "inventory_xqxqY7",
+        "buy_buttons_HcXqXr",
+        "description_4A7LP7",
+        "collapsible_G6MBFh",
+        "collapsible_bFFJ4i"
+      ],
+      "name": "Custom product information",
+      "settings": {
+        "color_scheme": "",
+        "editorial_heading": true,
+        "gallery_gap": 4,
+        "enable_image_popup": true,
+        "enable_desktop_zoom": true,
+        "enable_mobile_slider": true,
+        "padding": 36
       }
     },
     "related-products": {
@@ -193,6 +281,7 @@
   },
   "order": [
     "main",
+    "custom_main_product_kJH9Um",
     "related-products",
     "collapsible_gCmtAB",
     "collapsible_ifixh8",

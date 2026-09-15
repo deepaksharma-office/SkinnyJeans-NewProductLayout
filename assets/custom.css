@@ -169,6 +169,43 @@ cart-remove-button .button:not([disabled]){
   display: block;
 }
 
+.shop-pay-button {
+  width: 100%;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #5a31f4;
+  color: #fff;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.shop-pay-button__text {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.shop-pay-button__logo {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.shop-pay-button__logo svg {
+  display: block;
+  width: 51px;
+  height: 20px;
+}
+
+.shop-pay-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Mobile Layout */
 @media (max-width: 768px) {
 

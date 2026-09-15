@@ -39,7 +39,7 @@
       <div class="custom-main-product__richtext">
         {{ content -}}
         <span class="heading-with-flag">
-          {% if block.settings.image != blank %}
+          {% comment %} {% if block.settings.image != blank %}
             <span class="heading-with-flag__icon">
               <img
                 class="flag_icon"
@@ -50,7 +50,7 @@
                 alt="{{ block.settings.texts }}"
               >
             </span>
-          {% endif %}
+          {% endif %} {% endcomment %}
           {% if block.settings.texts != blank %}
             <span>{{ block.settings.texts }}</span>
           {% endif %}

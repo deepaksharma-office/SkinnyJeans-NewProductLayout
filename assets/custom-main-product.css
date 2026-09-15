@@ -37,7 +37,7 @@
 .custom-main-product__values--swatches { display: flex; gap: 12px; flex-wrap: wrap; padding-bottom: 12px; }
 .custom-main-product__choice { position: relative; min-width: 0; }
 .custom-main-product__radio { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.custom-main-product__value { display: flex; align-items: center; justify-content: center; position: relative; min-height: 44px; padding: 7px 10px; border: 1px solid var(--custom-border); cursor: pointer; line-height: 1.2; transition: background .18s, color .18s, border-color .18s; }
+.custom-main-product__value { display: flex; align-items: center; justify-content: center; position: relative; padding: 7px 10px; border: 1px solid var(--custom-border); cursor: pointer; line-height: 1.2; transition: background .18s, color .18s, border-color .18s; }
 .custom-main-product__radio:checked + .custom-main-product__value { background: var(--custom-ink); color: var(--custom-paper); border-color: var(--custom-ink); }
 .custom-main-product__radio:focus-visible + .custom-main-product__value { outline: 2px solid var(--custom-ink); outline-offset: 4px; }
 .custom-main-product__value--unavailable { color: var(--custom-muted); opacity: .42; }

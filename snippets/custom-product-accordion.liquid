@@ -38,5 +38,22 @@
     <div>
       <div class="custom-main-product__richtext">{{ content }}</div>
     </div>
+    <span class="heading-with-flag">
+      {% if block.settings.image != blank %}
+        <span class="heading-with-flag__icon">
+          <img
+            class="flag_icon"
+            src="{{ block.settings.image | image_url }}"
+            width="{{ block.settings.image.width }}"
+            height="{{ block.settings.image.height }}"
+            loading="lazy"
+            alt="{{ block.settings.texts }}"
+          >
+        </span>
+      {% endif %}
+      {% if block.settings.texts != blank %}
+        <span>{{ block.settings.texts }}</span>
+      {% endif %}
+    </span>
   </div>
 </div>

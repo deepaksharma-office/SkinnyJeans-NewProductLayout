@@ -158,6 +158,7 @@ cart-remove-button .button:not([disabled]){
 .heading-with-flag__icon {
   display: inline-flex;
   align-items: center;
+      margin-left: 6px;
   line-height: 0;
 }
 

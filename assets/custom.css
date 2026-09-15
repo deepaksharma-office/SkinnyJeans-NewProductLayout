@@ -189,7 +189,6 @@ cart-remove-button .button:not([disabled]){
 
 .shop-pay-button__text {
   font-size: 16px;
-  font-weight: 600;
   line-height: 1;
 }
 

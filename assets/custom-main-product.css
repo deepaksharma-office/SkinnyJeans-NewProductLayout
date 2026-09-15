@@ -20,7 +20,7 @@
     top: 24px; }
 .custom-main-product__block:empty, .custom-main-product__status:empty { display: none; }
 .custom-main-product__title { font-family: var(--font-heading-family); font-style: var(--font-heading-style); font-weight: var(--font-heading-weight, 400); font-size: 26px; line-height: 1.15; margin: 0 0 10px; letter-spacing: -.025em; }
-.custom-main-product__price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; font-size: 20px; line-height: 1.4; }
+.custom-main-product__price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; font-size: 14px; line-height: 1.4; }
 .custom-main-product__price s { color: var(--custom-muted); font-size: 16px; }
 .custom-main-product__terms { font-size: 13px; color: var(--custom-muted); margin: 7px 0 0; }
 .custom-main-product__rating { display: flex; gap: 10px; align-items: center; color: var(--custom-muted); font-size: 14px; margin: 9px 0 0; }

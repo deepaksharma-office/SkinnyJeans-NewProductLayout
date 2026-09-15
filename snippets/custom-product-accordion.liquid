@@ -7,11 +7,11 @@
       aria-controls="custom-panel-{{ section.id }}-{{ block.id }}"
       data-custom-accordion-toggle
     >
-      <span>
+      <span class="heading-with-flag">
         <span>{{ heading | escape }}</span>
 
         {% if block.settings.image != blank %}
-          <span>
+          <span class="heading-with-flag__icon">
             <img
               class="flag_icon"
               src="{{ block.settings.image | image_url }}"

@@ -149,6 +149,24 @@ cart-remove-button .button:not([disabled]){
 
 .custom_font { --font-heading-family: ui-serif, Georgia, serif !important; --font-heading-weight: 400; }
 
+.heading-with-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+}
+
+.heading-with-flag__icon {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.heading-with-flag__icon .flag_icon {
+  width: 1.6em;
+  height: 1.6em;
+  object-fit: contain;
+  display: block;
+}
 
 /* Mobile Layout */
 @media (max-width: 768px) {

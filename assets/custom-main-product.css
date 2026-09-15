@@ -13,7 +13,7 @@
 .custom-main-product button, .custom-main-product input { font: inherit; color: inherit; }
 .custom-main-product button { cursor: pointer; }
 .custom-main-product button:disabled { cursor: not-allowed; opacity: .45; }
-.custom-main-product a { color: inherit; text-underline-offset: 3px; }
+.custom-main-product a { color: inherit; text-underline-offset: 3px; display: none !important; }
 .custom-main-product :focus-visible { outline: 2px solid var(--custom-ink); outline-offset: 4px; }
 .custom-main-product__layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(28px, 3.3vw, 60px); max-width: 1720px; margin: 0 auto; align-items: start; }
 .custom-main-product__info { min-width: 0; max-width: 640px; width: 100%; position: sticky;

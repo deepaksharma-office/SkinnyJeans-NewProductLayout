@@ -183,6 +183,10 @@ cart-remove-button .button:not([disabled]){
   cursor: pointer;
 }
 
+.shop-pay-button::before, .shop-pay-button::after{
+  display: none !important;
+}
+
 .shop-pay-button__text {
   font-size: 16px;
   font-weight: 600;

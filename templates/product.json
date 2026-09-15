@@ -135,7 +135,7 @@
         "collapsible_G6MBFh": {
           "type": "collapsible",
           "settings": {
-            "heading": "Fit & measurements",
+            "heading": "DETAILS & FIT",
             "content": "{{ product.metafields.custom.design_and_fit | metafield_tag }}",
             "metafield_source": "fit",
             "image": "shopify://shop_images/icons8-american-flag-48.png",

@@ -33,7 +33,7 @@
 .custom-main-product__option legend { padding: 0; margin: 0 0 18px; font-size: 13px; text-transform: uppercase; max-width: calc(100% - 95px); }
 .custom-main-product__option legend span { color: var(--custom-muted); text-transform: none; }
 .custom-main-product__guide-link { position: absolute; right: 0; top: 0; transform: translateY(calc(-100% - 18px)); background: none; border: 0; padding: 0; text-transform: uppercase; font-size: 13px !important; text-decoration: underline; text-underline-offset: 3px; }
-.custom-main-product__values { display: grid; grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); gap: 7px; }
+.custom-main-product__values { display: grid; grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); gap: 7px;     font-size: 12px; }
 .custom-main-product__values--swatches { display: flex; gap: 12px; flex-wrap: wrap; padding-bottom: 12px; }
 .custom-main-product__choice { position: relative; min-width: 0; }
 .custom-main-product__radio { position: absolute; opacity: 0; width: 1px; height: 1px; }

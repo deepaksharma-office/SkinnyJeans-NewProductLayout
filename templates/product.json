@@ -130,7 +130,10 @@
         },
         "description_4A7LP7": {
           "type": "description",
-          "settings": {}
+          "settings": {
+            "texts": "Cut, sewn, and washed in Los Angeles, California.",
+            "image": "shopify://shop_images/icons8-american-flag-48.png"
+          }
         },
         "collapsible_G6MBFh": {
           "type": "collapsible",

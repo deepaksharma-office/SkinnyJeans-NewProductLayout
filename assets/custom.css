@@ -163,7 +163,7 @@ cart-remove-button .button:not([disabled]){
 
 .heading-with-flag__icon .flag_icon {
   width: 1.6em;
-  height: 1.6em;
+  height: 0.8em;
   object-fit: contain;
   display: block;
 }

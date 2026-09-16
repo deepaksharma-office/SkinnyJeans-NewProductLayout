@@ -30,7 +30,7 @@
 .custom-main-product__divider { border: 0; height: 1px; background: var(--custom-border); margin: 20px 0 32px; }
 .custom-main-product__options { display: grid; gap: 8px; margin: 28px 0; }
 .custom-main-product__option { padding: 0; margin: 0; border: 0; min-width: 0; position: relative; }
-.custom-main-product__option legend { padding: 0; margin: 0 0 18px; font-size: 13px; text-transform: uppercase; max-width: calc(100% - 95px); }
+.custom-main-product__option legend { padding: 0; margin: 0 0 1px; font-size: 13px; text-transform: uppercase; max-width: calc(100% - 95px); }
 .custom-main-product__option legend span { color: var(--custom-muted); text-transform: none; }
 .custom-main-product__guide-link { position: absolute; right: 0; top: 0; transform: translateY(calc(-100% - 18px)); background: none; border: 0; padding: 0; text-transform: uppercase; font-size: 13px !important; text-decoration: underline; text-underline-offset: 3px; }
 .custom-main-product__values { display: grid; grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); gap: 7px;     font-size: 12px; }

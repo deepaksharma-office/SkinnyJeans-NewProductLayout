@@ -1471,7 +1471,7 @@
     --trip-ease: cubic-bezier(0.25,0.1,0,1)
 }
 
-/* :root {
+:root {
     --ta-sans-serif: "Trip Sans VF","Trip Sans",Arial,sans-serif;
     --ta-serif: Georgia,"Times New Roman","Century Schoolbook L",serif;
     --ta-monospace: "Trip Sans Mono",Courier,monospace,Arial,sans-serif;
@@ -1479,7 +1479,7 @@
     --trip-sans-medium: 700;
     --trip-sans-bold: 800;
     --trip-sans-ultra: 900
-} */
+}
 
 :root {
     --breakpointLarge: 1184px;
@@ -1585,7 +1585,7 @@
     --gap-01: 2px
 }
 
-/* :root {
+:root {
     --fixed-title-10: normal 700 18px/22px "Trip Sans VF","Trip Sans",arial,sans-serif;
     --fixed-label-10: normal 700 12px/16px "Trip Sans VF","Trip Sans",arial,sans-serif;
     --adaptive-display-30-small: normal 900 38px/42px "Trip Sans VF","Trip Sans",arial,sans-serif;
@@ -1619,7 +1619,7 @@
     --extended-body-35-editorial-weak-large: normal 400 18px/22px "Georgia","Times New Roman","Century Schoolbook L",serif;
     --extended-supporting-35-editorial-weak-large: italic 400 18px/22px "Georgia","Times New Roman","Century Schoolbook L",serif;
     --fixed-title-20: normal 800 20px/24px "Trip Sans VF","Trip Sans",arial,sans-serif
-} */
+}
 
 :root {
     --sub-brands-trip-rewards: #b2ff1a;

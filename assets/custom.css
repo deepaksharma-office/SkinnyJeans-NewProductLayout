@@ -147,7 +147,7 @@ cart-remove-button .button:not([disabled]){
   }
 }
 
-/* .custom_font { --font-heading-family: ui-serif, Georgia, serif !important; --font-heading-weight: 400; } */
+.custom_font { --font-heading-family: ui-serif, Georgia, serif !important; --font-heading-weight: 400; }
 
 .heading-with-flag {
   display: inline-flex;

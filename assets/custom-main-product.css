@@ -68,7 +68,7 @@
 .custom-main-product[data-enhanced] .custom-main-product__accordion-panel { transition: grid-template-rows .3s ease, visibility .3s; }
 .custom-main-product[data-enhanced] .custom-main-product__accordion-panel[data-open=false] { grid-template-rows: 0fr; visibility: hidden; }
 .custom-main-product__accordion-panel > div { min-height: 0; overflow: hidden; }
-.custom-main-product__richtext { color: var(--custom-muted); line-height: 1.85; overflow-wrap: anywhere; }
+.custom-main-product__richtext { color: var(--custom-muted); line-height: 1.85; overflow-wrap: anywhere; padding: 0 0 28px; }
 .custom-main-product__richtext > :first-child { margin-top: 0; }
 .custom-main-product__richtext > :last-child { margin-bottom: 0; }
 .custom-main-product__accordion-panel .custom-main-product__richtext { padding: 0 0 28px; }

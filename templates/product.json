@@ -135,6 +135,12 @@
             "image": "shopify://shop_images/unnamed_8d586026-769f-4c7c-b9ca-e9640876aae3.png"
           }
         },
+        "description_BEAdyM": {
+          "type": "description",
+          "settings": {
+            "texts": "Cut, sewn, and washed in Los Angeles, California."
+          }
+        },
         "collapsible_G6MBFh": {
           "type": "collapsible",
           "settings": {
@@ -163,6 +169,7 @@
         "inventory_xqxqY7",
         "buy_buttons_HcXqXr",
         "normal_description_WRT74F",
+        "description_BEAdyM",
         "collapsible_G6MBFh",
         "collapsible_bFFJ4i"
       ],

@@ -90,6 +90,25 @@
                     form_id: custom_form_id
                   %}
                 </div>
+              {% when 'normal_description' %}
+                {{ product.description }}
+                <span class="heading-with-flag">
+                  {% if block.settings.image != blank %}
+                    <span class="heading-with-flag__icon">
+                      <img
+                        class="flag_icon"
+                        src="{{ block.settings.image | image_url }}"
+                        width="{{ block.settings.image.width }}"
+                        height="{{ block.settings.image.height }}"
+                        loading="lazy"
+                        alt="{{ block.settings.texts }}"
+                      >
+                    </span>
+                  {% endif %}
+                  {% if block.settings.texts != blank %}
+                    <span>{{ block.settings.texts }}</span>
+                  {% endif %}
+                </span>
               {%- when 'description', 'collapsible' -%}
                 {%- liquid
                   assign content = block.settings.content
@@ -127,8 +146,6 @@
                     block: block
                   %}
                 {% endif %}
-
-                
             {%- endcase -%}
           </div>
         {%- endfor -%}
@@ -260,7 +277,30 @@
       "name": "Description",
       "limit": 1,
       "settings": [
-        { "type": "text", "id": "texts", "label": "Label", "default": "Cut, sewn, and washed in Los Angeles, California." },
+        {
+          "type": "text",
+          "id": "texts",
+          "label": "Label",
+          "default": "Cut, sewn, and washed in Los Angeles, California."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.multicolumn.blocks.column.settings.image.label"
+        }
+      ]
+    },
+    {
+      "type": "normal_description",
+      "name": "Normal Description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "texts",
+          "label": "Label",
+          "default": "Cut, sewn, and washed in Los Angeles, California."
+        },
         {
           "type": "image_picker",
           "id": "image",

@@ -155,7 +155,7 @@ cart-remove-button .button:not([disabled]){
 
 @media screen and (min-width: 750px) {
    .grid--8-col-desktop  .grid__item {
-        width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+        width: calc(10% - var(--grid-desktop-horizontal-spacing) * 1);
         max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
     }
 }

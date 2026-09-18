@@ -312,7 +312,7 @@
         "image_ratio": "portrait",
         "button_label": "",
         "button_link": "",
-        "columns_desktop": 6,
+        "columns_desktop": 8,
         "columns_gap": 6,
         "column_alignment": "left",
         "background_style": "none",

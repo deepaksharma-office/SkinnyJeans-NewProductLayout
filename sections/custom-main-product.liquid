@@ -91,6 +91,11 @@
                   %}
                 </div>
               {% when 'normal_description' %}
+                <h2 class="custom-main-product__accordion-heading">
+                    <span class="heading-with-flag">
+                      <span>DESCRIPTION</span>
+                    </span>
+                </h2>
                 {{ product.description }}
                 <span class="heading-with-flag">
                   {% if block.settings.image != blank %}

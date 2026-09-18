@@ -9,19 +9,6 @@
     >
       <span class="heading-with-flag">
         <span>{{ heading | escape }}</span>
-
-        {% comment %} {% if block.settings.image != blank %}
-          <span class="heading-with-flag__icon">
-            <img
-              class="flag_icon"
-              src="{{ block.settings.image | image_url }}"
-              width="{{ block.settings.image.width }}"
-              height="{{ block.settings.image.height }}"
-              loading="lazy"
-              alt="{{ heading | escape }}"
-            >
-          </span>
-        {% endif %} {% endcomment %}
       </span>
       <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
         <path d="m3 6 5 5 5-5" stroke="currentColor" stroke-width="1.3"/>

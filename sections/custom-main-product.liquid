@@ -96,6 +96,7 @@
                       <span>DESCRIPTION</span>
                     </span>
                 </h2>
+                <div class="custom-main-product__richtext">
                 {{ product.description }}
                 <span class="heading-with-flag">
                   {% if block.settings.image != blank %}
@@ -114,6 +115,7 @@
                     <span>{{ block.settings.texts }}</span>
                   {% endif %}
                 </span>
+              </div>
               {%- when 'description', 'collapsible' -%}
                 {%- liquid
                   assign content = block.settings.content

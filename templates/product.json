@@ -128,10 +128,10 @@
             "show_dynamic_checkout": true
           }
         },
-        "description_4A7LP7": {
-          "type": "description",
+        "normal_description_WRT74F": {
+          "type": "normal_description",
           "settings": {
-            "texts": "Cut, sewn, washed and finished in Los Angeles, California.",
+            "texts": "Cut, sewn, and washed in Los Angeles, California.",
             "image": "shopify://shop_images/unnamed_8d586026-769f-4c7c-b9ca-e9640876aae3.png"
           }
         },
@@ -162,7 +162,7 @@
         "variant_selector_ekbdd4",
         "inventory_xqxqY7",
         "buy_buttons_HcXqXr",
-        "description_4A7LP7",
+        "normal_description_WRT74F",
         "collapsible_G6MBFh",
         "collapsible_bFFJ4i"
       ],

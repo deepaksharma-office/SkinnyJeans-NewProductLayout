@@ -131,7 +131,7 @@
         "normal_description_WRT74F": {
           "type": "normal_description",
           "settings": {
-            "texts": "Cut, sewn, and washed in Los Angeles, California",
+            "texts": "<strong>Cut, sewn, and washed in Los Angeles, California</strong>",
             "image": "shopify://shop_images/unnamed_8d586026-769f-4c7c-b9ca-e9640876aae3.png"
           }
         },

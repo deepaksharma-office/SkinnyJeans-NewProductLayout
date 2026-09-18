@@ -281,6 +281,16 @@
             "link_label": "",
             "link": ""
           }
+        },
+        "column_YgKTCk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSC09091.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
@@ -290,7 +300,8 @@
         "column_Q7FYV9",
         "column_a4XkWk",
         "column_HHCnxq",
-        "column_KF6YkK"
+        "column_KF6YkK",
+        "column_YgKTCk"
       ],
       "custom_css": [],
       "name": "t:sections.multicolumn.presets.name",

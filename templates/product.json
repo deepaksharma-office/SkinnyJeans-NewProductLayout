@@ -185,6 +185,30 @@
         "padding": 36
       }
     },
+    "rich_text_ibhdD6": {
+      "type": "rich-text",
+      "blocks": {
+        "cheading_hY7zeH": {
+          "type": "cheading",
+          "settings": {
+            "heading": "<em><strong>SkinnyJeans® in their natural habitat and spotted in the wild...</strong></em>",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "cheading_hY7zeH"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "related-products": {
       "type": "related-products",
       "disabled": true,
@@ -228,6 +252,7 @@
   "order": [
     "main",
     "custom_main_product_kJH9Um",
+    "rich_text_ibhdD6",
     "related-products",
     "1755256683b21689c3"
   ]

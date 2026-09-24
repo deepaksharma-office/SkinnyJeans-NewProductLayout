@@ -88,14 +88,21 @@
     gap: 1rem;
   }
 
-  .product--card-wrap {
-    min-width: 0;
+  /* Set the height of the entire image area, not just the image */
+  .product--card-wrap .card__inner {
+    aspect-ratio: 1 / 1;
+    height: auto;
   }
 
-  /* Limit the height of each product image */
+  /* Remove the theme's original tall ratio spacer */
+  .product--card-wrap .card__inner::before {
+    display: none;
+  }
+
   .product--card-wrap .card__media,
   .product--card-wrap .card__media .media {
-    height: clamp(160px, 18vw, 230px);
+    width: 100%;
+    height: 100%;
   }
 
   .product--card-wrap .card__media img {

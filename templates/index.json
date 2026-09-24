@@ -105,7 +105,7 @@
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "standard",
+        "quick_add": "none",
         "padding_top": 40,
         "padding_bottom": 40,
         "image_size": 200,

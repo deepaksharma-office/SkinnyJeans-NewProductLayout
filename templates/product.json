@@ -179,8 +179,8 @@
         "color_scheme": "",
         "editorial_heading": true,
         "gallery_gap": 4,
-        "enable_image_popup": true,
-        "enable_desktop_zoom": true,
+        "enable_image_popup": false,
+        "enable_desktop_zoom": false,
         "enable_mobile_slider": true,
         "padding": 24
       }

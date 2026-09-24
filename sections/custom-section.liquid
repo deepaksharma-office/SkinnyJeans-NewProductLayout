@@ -46,7 +46,7 @@
       <div class="products__block-container">
         <div class="prodct--inner">
           {% assign collection = section.settings.collection %}
-          {% for product in collection.products limit: 2 %}
+          {% for product in collection.products limit: 4 %}
             <div class="product--card-wrap">
               {% render 'new-card',
                 card_product: product,

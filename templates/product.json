@@ -188,6 +188,14 @@
     "rich_text_ibhdD6": {
       "type": "rich-text",
       "blocks": {
+        "heading_rXFqKw": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "<em><strong>SkinnyJeans® in their natural habitat and spotted in the wild...</strong></em>&nbsp;",
+            "heading_size": "h2"
+          }
+        },
         "cheading_hY7zeH": {
           "type": "cheading",
           "settings": {
@@ -197,6 +205,7 @@
         }
       },
       "block_order": [
+        "heading_rXFqKw",
         "cheading_hY7zeH"
       ],
       "name": "t:sections.rich-text.presets.name",

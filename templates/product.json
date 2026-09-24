@@ -199,7 +199,7 @@
         "cheading_hY7zeH": {
           "type": "cheading",
           "settings": {
-            "heading": "<em><strong>SkinnyJeans® in their natural habitat and spotted in the wild...</strong></em>",
+            "heading": "&nbsp;<em><strong>SkinnyJeans® in their natural habitat and spotted in the wild...send your pix to us at </strong></em><a href=\"mailto:hello@skinnyjeans.com\" target=\"_blank\"><em><strong>hello@skinnyjeans.com</strong></em></a><em><strong>!</strong></em>&nbsp;",
             "heading_size": "h2"
           }
         }
@@ -312,7 +312,7 @@
         "title": "",
         "heading_size": "h1",
         "image_width": "full",
-        "image_ratio": "portrait",
+        "image_ratio": "adapt",
         "button_label": "",
         "button_link": "",
         "columns_desktop": 8,
